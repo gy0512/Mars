@@ -17,7 +17,7 @@ namespace Mars.Pages
             {
                 var gotoshareskillpagecheck = "test";
                 gotoshareskillpagecheck = driver.FindElement(By.XPath(".//div[@class=\"tooltip-target vertically padded ui grid\"]/div/div[2]/div/div[2]/p[text()='100']")).GetAttribute("textContent");
-                Console.Write($"gotoshareskillpagecheck:{gotoshareskillpagecheck}");
+                Console.WriteLine($"gotoshareskillpagecheck:{gotoshareskillpagecheck}");
                 Assert.That(gotoshareskillpagecheck == "Characters remaining: 100");
             }
             catch (Exception ex)
@@ -111,7 +111,7 @@ namespace Mars.Pages
                 shareskillcheck1 = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr/td[2][text()='Graphics & Design']")).GetAttribute("textContent");
                 shareskillcheck2 = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr/td[3][text()='Locust']")).GetAttribute("textContent");
                 shareskillcheck3 = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr/td[4][text()='Locust']")).GetAttribute("textContent");
-                Console.Write($"languagecheck:{shareskillcheck1},{shareskillcheck2},{shareskillcheck3}");
+                Console.WriteLine($"languagecheck:{shareskillcheck1},{shareskillcheck2},{shareskillcheck3}");
                 Assert.That(shareskillcheck1 == "Graphics & Design" && shareskillcheck2 == "Locust" && shareskillcheck3 == "Locust");
             }
             catch (Exception ex)

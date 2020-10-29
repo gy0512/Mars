@@ -28,7 +28,7 @@ namespace Mars.Pages
                 //driver.FindElement(By.XPath("//*[@id=\"account - profile - section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span")).Click();
                 //descriptioncheck = driver.FindElement(By.XPath("//*[@id=\"account - profile - section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span")).GetAttribute("innerText");
                 descriptioncheck = driver.FindElement(By.XPath("//*[contains(text(),'Gary Gao profile description')]")).GetAttribute("textContent");
-                Console.Write($"descriptioncheck:{descriptioncheck}");
+                Console.WriteLine($"descriptioncheck:{descriptioncheck}");
                 Assert.That(descriptioncheck == "Gary Gao profile description");           
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace Mars.Pages
                 var languagecheck2 = "test";
                 languagecheck1 = driver.FindElement(By.XPath(".//table[@class=\"ui fixed table\"]/tbody/tr/td[text()='English']")).GetAttribute("textContent");
                 languagecheck2 = driver.FindElement(By.XPath(".//table[@class=\"ui fixed table\"]/tbody/tr/td[text()='Basic']")).GetAttribute("textContent");
-                Console.Write($"languagecheck:{languagecheck1},{languagecheck2}");
+                Console.WriteLine($"languagecheck:{languagecheck1},{languagecheck2}");
                 Assert.That(languagecheck1 == "English" && languagecheck2 == "Basic");
             }
             catch (Exception ex)
