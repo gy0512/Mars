@@ -24,10 +24,9 @@ namespace Mars.Pages
             // verify description
             try
             {
-                var descriptioncheck = "test";
                 //driver.FindElement(By.XPath("//*[@id=\"account - profile - section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span")).Click();
                 //descriptioncheck = driver.FindElement(By.XPath("//*[@id=\"account - profile - section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span")).GetAttribute("innerText");
-                descriptioncheck = driver.FindElement(By.XPath("//*[contains(text(),'Gary Gao profile description')]")).GetAttribute("textContent");
+                var descriptioncheck = driver.FindElement(By.XPath("//*[contains(text(),'Gary Gao profile description')]")).GetAttribute("textContent");
                 Console.WriteLine($"descriptioncheck:{descriptioncheck}");
                 Assert.That(descriptioncheck == "Gary Gao profile description");           
             }
@@ -39,6 +38,12 @@ namespace Mars.Pages
 
         public void AddNewLanguage(IWebDriver driver)
         {
+            /*
+             while traverse whether language has existed in language list
+            //languagename //*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]
+            //languagelevel //*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]           
+            */
+
             // click the add new language button
             driver.FindElement(By.XPath("//div[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div")).Click();
 
@@ -57,12 +62,10 @@ namespace Mars.Pages
             // verify new language
             try
             {
-                var languagecheck1 = "test";
-                var languagecheck2 = "test";
-                languagecheck1 = driver.FindElement(By.XPath(".//table[@class=\"ui fixed table\"]/tbody/tr/td[text()='English']")).GetAttribute("textContent");
-                languagecheck2 = driver.FindElement(By.XPath(".//table[@class=\"ui fixed table\"]/tbody/tr/td[text()='Basic']")).GetAttribute("textContent");
-                Console.WriteLine($"languagecheck:{languagecheck1},{languagecheck2}");
-                Assert.That(languagecheck1 == "English" && languagecheck2 == "Basic");
+                var languagenamecheck = driver.FindElement(By.XPath(".//table[@class=\"ui fixed table\"]/tbody[last()]/tr/td[text()='English']")).GetAttribute("textContent");
+                var languagelevelcheck = driver.FindElement(By.XPath(".//table[@class=\"ui fixed table\"]/tbody[last()]/tr/td[text()='Basic']")).GetAttribute("textContent");
+                Console.WriteLine($"languagenamecheck,languagelevelcheck:{languagenamecheck},{languagelevelcheck}");
+                Assert.That(languagenamecheck == "English" && languagelevelcheck == "Basic");
             }
             catch (Exception ex)
             {

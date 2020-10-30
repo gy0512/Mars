@@ -55,7 +55,7 @@ namespace Mars.StepDefinitions
             ShareSkillPage shareskillObj = new ShareSkillPage();
             shareskillObj.GotoShareSkillPage(driver);
         }
-        
+
         [Given(@"I create skill in share skill page")]
         public void GivenICreateSkillInShareSkillPage()
         {
@@ -63,5 +63,19 @@ namespace Mars.StepDefinitions
             shareskillObj.CreateShareSkill(driver);
         }
 
+
+        [Given(@"I search the skill name in search box")]
+        public void GivenISearchTheSkillNameInSearchBox()
+        {
+            SkillListPage skilllistObj = new SkillListPage();
+            skilllistObj.SearchSkill(driver);
+        }
+
+        [Given(@"I turn page to find the skill card")]
+        public void GivenITurnPageToFindTheSkillCard()
+        {
+            SkillListPage skilllistObj = new SkillListPage();
+            skilllistObj.FindSkill(driver);
+        }
     }
 }

@@ -15,8 +15,7 @@ namespace Mars.Pages
             // verify the share skill page
             try
             {
-                var gotoshareskillpagecheck = "test";
-                gotoshareskillpagecheck = driver.FindElement(By.XPath(".//div[@class=\"tooltip-target vertically padded ui grid\"]/div/div[2]/div/div[2]/p[text()='100']")).GetAttribute("textContent");
+                var gotoshareskillpagecheck = driver.FindElement(By.XPath(".//div[@class=\"tooltip-target vertically padded ui grid\"]/div/div[2]/div/div[2]/p[text()='100']")).GetAttribute("textContent");
                 Console.WriteLine($"gotoshareskillpagecheck:{gotoshareskillpagecheck}");
                 Assert.That(gotoshareskillpagecheck == "Characters remaining: 100");
             }
@@ -99,20 +98,17 @@ namespace Mars.Pages
             // save
             driver.FindElement(By.XPath("//input[@value='Save']")).Click();
 
-
+            // turn to last page
+            driver.FindElement(By.XPath("//div[@id='listing-management-section']/div[2]/div/div[2]/button[4]")).Click();
 
             // verify the share skill page
             try
             {
-                
-                var shareskillcheck1 = "test";
-                var shareskillcheck2 = "test";
-                var shareskillcheck3 = "test";
-                shareskillcheck1 = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr/td[2][text()='Graphics & Design']")).GetAttribute("textContent");
-                shareskillcheck2 = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr/td[3][text()='Locust']")).GetAttribute("textContent");
-                shareskillcheck3 = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr/td[4][text()='Locust']")).GetAttribute("textContent");
-                Console.WriteLine($"languagecheck:{shareskillcheck1},{shareskillcheck2},{shareskillcheck3}");
-                Assert.That(shareskillcheck1 == "Graphics & Design" && shareskillcheck2 == "Locust" && shareskillcheck3 == "Locust");
+                var categorycheck = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr[last()]/td[2][text()='Graphics & Design']")).GetAttribute("textContent");
+                var titlecheck = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr[last()]/td[3][text()='Locust']")).GetAttribute("textContent");
+                var descriptioncheck = driver.FindElement(By.XPath(".//table[@class=\"ui striped table\"]/tbody/tr[last()]/td[4][text()='Locust']")).GetAttribute("textContent");
+                Console.WriteLine($"categorycheck,titlecheck,descriptioncheck:{categorycheck},{titlecheck},{descriptioncheck}");
+                Assert.That(categorycheck == "Graphics & Design" && titlecheck == "Locust" && descriptioncheck == "Locust");
             }
             catch (Exception ex)
             {
