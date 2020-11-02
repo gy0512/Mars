@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using Mars.Helpers;
+using Mars.StepDefinitions;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -8,7 +10,26 @@ namespace Mars.Pages
 {
     class ProfilePage
     {
-        public void CreateDescription(IWebDriver driver)
+        public void GotoProfilePage(IWebDriver driver)
+        {
+            // click the go to profile sub-menu
+            driver.FindElement(By.XPath("//div[@id='account-profile-section']/div/div/div[2]/div/span")).Click();
+            driver.FindElement(By.LinkText("Go to Profile")).Click();
+
+            // verify the profile page
+            try
+            {
+                var gotoprofilepagecheck = driver.FindElement(By.XPath($"//*[contains(text(),'{RuntimeData.firstName} {RuntimeData.lastName}')]")).GetAttribute("innerText");
+                //Console.Write($"gotoprofilepagecheck:{gotoprofilepagecheck}");
+                Assert.That(gotoprofilepagecheck == $"{RuntimeData.firstName} {RuntimeData.lastName}");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("validate go to profile page failed", ex.Message);
+            }
+        }
+
+        public void CreateDescription(IWebDriver driver, long randnum)
         {
             // click the description icon button
             driver.FindElement(By.XPath("//div[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i")).Click();
@@ -16,19 +37,18 @@ namespace Mars.Pages
             // description
             driver.FindElement(By.Name("value")).Click();
             driver.FindElement(By.Name("value")).Clear();
-            driver.FindElement(By.Name("value")).SendKeys("Gary Gao profile description");
+            driver.FindElement(By.Name("value")).SendKeys($"{RuntimeData.firstName} {RuntimeData.lastName} profile description{RuntimeData.currentdatetime}-{randnum}");
 
             // save
             driver.FindElement(By.XPath("//button[@type='button']")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(9);
 
             // verify description
             try
             {
-                //driver.FindElement(By.XPath("//*[@id=\"account - profile - section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span")).Click();
-                //descriptioncheck = driver.FindElement(By.XPath("//*[@id=\"account - profile - section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span")).GetAttribute("innerText");
-                var descriptioncheck = driver.FindElement(By.XPath("//*[contains(text(),'Gary Gao profile description')]")).GetAttribute("textContent");
+                var descriptioncheck = driver.FindElement(By.XPath($"//*[contains(text(),'{RuntimeData.firstName} {RuntimeData.lastName} profile description{RuntimeData.currentdatetime}-{randnum}')]")).GetAttribute("textContent");
                 Console.WriteLine($"descriptioncheck:{descriptioncheck}");
-                Assert.That(descriptioncheck == "Gary Gao profile description");           
+                Assert.That(descriptioncheck == $"{RuntimeData.firstName} {RuntimeData.lastName} profile description{RuntimeData.currentdatetime}-{randnum}");           
             }
             catch (Exception ex)
             {

@@ -78,6 +78,10 @@
               "target": "Package",
               "version": "[3.4.31, )"
             },
+            "SpecFlow.Assist.Dynamic": {
+              "target": "Package",
+              "version": "[1.4.2, )"
+            },
             "SpecFlow.NUnit": {
               "target": "Package",
               "version": "[3.4.31, )"

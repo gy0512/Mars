@@ -107,8 +107,10 @@ D:\Software\Microsoft Visual Studio\source\repos\Mars\bin\Debug\netcoreapp3.1\ru
 D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.csprojAssemblyReference.cache
 D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.AssemblyInfoInputs.cache
 D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.AssemblyInfo.cs
-D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.csproj.CoreCompileInputs.cache
 D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.csproj.CopyComplete
 D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.dll
 D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.pdb
 D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.genruntimeconfig.cache
+D:\Software\Microsoft Visual Studio\source\repos\Mars\obj\Debug\netcoreapp3.1\Mars.csproj.CoreCompileInputs.cache
+D:\Software\Microsoft Visual Studio\source\repos\Mars\bin\Debug\netcoreapp3.1\Dynamitey.dll
+D:\Software\Microsoft Visual Studio\source\repos\Mars\bin\Debug\netcoreapp3.1\SpecFlow.Assist.Dynamic.dll
