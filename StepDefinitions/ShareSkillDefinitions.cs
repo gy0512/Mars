@@ -1,10 +1,8 @@
 ﻿using Mars.Helpers;
 using Mars.Pages;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using TechTalk.SpecFlow;
@@ -189,6 +187,5 @@ namespace Mars.StepDefinitions
             SkillListPage skilllistObj = new SkillListPage();
             skilllistObj.FindSkill(driver, runtimeData.randnum);
         }
-
     }
 }
